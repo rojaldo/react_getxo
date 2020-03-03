@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Heroes extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {heroes: ['superman', 'batman']};
     }
 
     componentWillMount() {
@@ -35,12 +35,17 @@ class Heroes extends Component {
 
     }
 
+    addHero(){
+        this.setState({heroes: [...this.state.heroes, 'Robin']})
+    }
+
     render() {
-        let heroes = ['superman', 'batman'];
+        
         const listHeroes = 
-        heroes.map((hero, i) => <li key={i}>{hero}</li>);
+        this.state.heroes.map((hero, i) => <li key={i}>{hero}</li>);
         return (
             <div>
+            <button onClick={()=>{this.addHero()}}>Add hero</button>
             <ul>
                 {listHeroes}
             </ul>
