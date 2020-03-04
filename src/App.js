@@ -3,27 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 import MyCalculator from './MyCalculator';
 import Heroes from './Heroes';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs'
+import Apod from './Apod';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <MyCalculator></MyCalculator> */}
+    <Tabs defaultActiveKey="apod" id="uncontrolled-tab-example">
+      <Tab eventKey="calculator" title="Calculator">
+        <MyCalculator></MyCalculator>
+      </Tab>
+      <Tab eventKey="heroes" title="Heroes">
         <Heroes></Heroes>
-        
-        <p>
-          Editar <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      </Tab>
+      <Tab eventKey="apod" title="Apod">
+        <Apod></Apod>
+      </Tab>
+    </Tabs>
+
   );
 }
 
