@@ -10,7 +10,7 @@ import Apod from './Apod';
 
 function App() {
   return (
-    <Tabs defaultActiveKey="apod" id="uncontrolled-tab-example">
+    <Tabs defaultActiveKey="heroes" id="uncontrolled-tab-example">
       <Tab eventKey="calculator" title="Calculator">
         <MyCalculator></MyCalculator>
       </Tab>

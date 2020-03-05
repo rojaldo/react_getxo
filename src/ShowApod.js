@@ -7,12 +7,12 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 class ShowApod extends Component {
     constructor(props) {
         super(props);
-        this.state = { info: {}, selectedDate: '' }
+        this.state = { info: {}, selectedDate: '' };
+        this.apiKey = 'DEMO_KEY';
 
     }
 
     componentWillMount() {
-        this.doRequest();
     }
 
     componentDidMount() {
@@ -20,6 +20,8 @@ class ShowApod extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log('NextProps: '+String(nextProps.date));
+        this.doRequest(nextProps.date)
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -27,7 +29,6 @@ class ShowApod extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        this.doRequest()
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -38,15 +39,19 @@ class ShowApod extends Component {
 
     }
 
-    doRequest() {
-        fetch('https://api.nasa.gov/planetary/apod?date=' + this.props.date + '&api_key=DEMO_KEY')
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-                this.setState({ info: data, selectedDate: this.props.date })
-            });
+    doRequest(date) {
+        let myDate = new Date()
+        if (date !== undefined){
+            
+        }
+            fetch('https://api.nasa.gov/planetary/apod?date=' + date + '&api_key='+this.apiKey)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    this.setState({ info: data, selectedDate: this.props.date })
+                });
     }
 
     render() {

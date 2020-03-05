@@ -13,15 +13,13 @@ class Apod extends Component {
         this.state = {
             dateStr: moment(new Date()).format("YYYY-MM-DD")
         };
-        this.startDate = new Date();
     }
 
     componentWillMount() {
-        this.handleChange(this.state.selectedDate)
     }
 
     componentDidMount() {
-
+        this.handleChange(this.state.dateStr)
     }
 
     componentWillReceiveProps(nextProps) {
