@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Heroes.css'
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';

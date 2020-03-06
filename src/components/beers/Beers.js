@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import './Beers.css'
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns';

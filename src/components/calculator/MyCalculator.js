@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MyCalculator.css'
 import PropTypes from 'prop-types';
 import Display from './Display';
 import Keyboard from './Keyboard';
