@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Hero from './models/Hero';
+import Hero from '../../models/Hero';
 
 class Heroes extends Component {
     constructor(props) {

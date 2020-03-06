@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Sample extends Component {
+class Trivial extends Component {
     constructor(props) {
         super(props);
 
     }
 
     componentWillMount() {
-
+        this.doRequest()
     }
 
     componentDidMount() {
@@ -24,7 +24,7 @@ class Sample extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-
+        return true;
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -35,18 +35,30 @@ class Sample extends Component {
 
     }
 
+    doRequest() {
+        fetch('https://opentdb.com/api.php?amount=10')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+
+                this.setState({ info: data})
+            });
+    }
+
+
     render() {
         return (
             <div>
-                <h1>Esto es un componente Sample</h1>
-                <p>Hola mundo</p>
+
             </div>
         );
     }
 }
 
-Sample.propTypes = {
+Trivial.propTypes = {
 
 };
 
-export default Sample;
+export default Trivial;
